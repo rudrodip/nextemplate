@@ -7,6 +7,44 @@ import { getTableOfContents } from "@/lib/toc";
 import { DashboardTableOfContents } from "@/components/mdx/toc";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
+import { siteConfig } from "@/config/site";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const page = await getpageFromParams(params);
+
+  if (!page) {
+    return {};
+  }
+
+  return {
+    title: page.title,
+    description: page.description,
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      type: "article",
+      url: siteConfig.url,
+      images: [
+        {
+          url: siteConfig.url,
+          width: 1200,
+          height: 630,
+          alt: page.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description: page.description,
+      images: [siteConfig.url],
+    },
+  };
+}
 
 async function getpageFromParams(params: { slug: string }) {
   const slug = params.slug;
