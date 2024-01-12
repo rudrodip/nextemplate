@@ -10,8 +10,8 @@ export const RenderFiles = ({
   return (
     <div className="relative w-full bg-secondary/30 backdrop-blur-md overflow-y-hidden">
       <Tabs defaultValue="main.tsx" className="w-full">
-        <TabsList className="flex justify-between gap-3 sticky top-0 z-50">
-          <TabsTrigger value="main.tsx" className="w-full">
+        <TabsList className="h-auto flex flex-wrap sm:flex-nowrap justify-between gap-3 sticky top-0 z-50">
+          <TabsTrigger value="main.tsx" className="lg:w-full">
             main.tsx
           </TabsTrigger>
           {fileContents.map(
@@ -20,7 +20,7 @@ export const RenderFiles = ({
                 <TabsTrigger
                   key={fileContent.fileName}
                   value={fileContent.fileName}
-                  className="w-full"
+                  className="lg:w-full"
                 >
                   {fileContent.fileName}
                 </TabsTrigger>
