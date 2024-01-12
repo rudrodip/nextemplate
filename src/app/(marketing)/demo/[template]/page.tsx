@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { ComponentDetails } from "@/types";
 import SandboxRenderer from "./_components/sandbox-renderer";
 import { siteConfig } from "@/config/site";
-import { absoluteUrl } from "@/lib/utils";
+import { absoluteUrl, formatDate } from "@/lib/utils";
 
 import { Metadata } from "next";
 
@@ -127,6 +127,9 @@ export default async function Page({
           {componentDetails.title}
         </h1>
         <p>{componentDetails.desc}</p>
+        <p className="inline-block text-sm text-muted-foreground bg-muted px-1 mt-2 rounded border cursor-pointer">
+          {formatDate(componentDetails.date)}
+        </p>
         <div className="max-w-3xl flex flex-wrap gap-2">
           {componentDetails.tags.map((tag, index) => {
             return (
