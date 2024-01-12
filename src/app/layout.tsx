@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    default: `Welcome to ${siteConfig.name}`,
+    default: `${siteConfig.name} | ${siteConfig.description}`,
     template: `%s | ${siteConfig.name}`,
   },
   referrer: "origin-when-cross-origin",
@@ -98,9 +98,8 @@ export default function RootLayout({
         )}
         suppressHydrationWarning={true}
       >
-        <div className="main">
-          <div className="gradient"></div>
-        </div>
+        <div className="main"></div>
+        <div className="gradient"></div>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
