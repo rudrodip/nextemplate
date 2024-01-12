@@ -54,43 +54,50 @@ export async function generateMetadata({
 }
 
 const getTemplate = async (template: string) => {
-  const componentsDirectory = path.join(
-    process.cwd(),
-    "src/components/templates",
-    template
-  );
-  const files = await fs.readdir(componentsDirectory);
+  try {
+    const componentsDirectory = path.join(
+      process.cwd(),
+      "src/components/templates",
+      template
+    );
 
-  if (
-    !files.includes("component-details.json") ||
-    !files.includes("main.tsx")
-  ) {
+    const files = await fs.readdir(componentsDirectory);
+
+    if (
+      !files.includes("component-details.json") ||
+      !files.includes("main.tsx")
+    ) {
+      return null;
+    }
+
+    const fileContentsPromises = files.map(async (file) => {
+      const filePath = path.join(componentsDirectory, file);
+      const content = await fs.readFile(filePath, "utf8");
+      return { fileName: file, content };
+    });
+
+    const fileContents = (await Promise.all(fileContentsPromises)).filter(
+      (fileContent) =>
+        fileContent.fileName !== "component-details.json" &&
+        fileContent.fileName !== "example.gif"
+    );
+
+    const componentDetails: ComponentDetails = JSON.parse(
+      await fs.readFile(
+        path.join(componentsDirectory, "component-details.json"),
+        "utf8"
+      )
+    );
+
+    return {
+      fileContents,
+      componentDetails,
+    };
+  } catch (error) {
+    // Handle the error, you might want to log it or return a specific error object.
+    console.error("Error in getTemplate:", error);
     return null;
   }
-
-  const fileContentsPromises = files.map(async (file) => {
-    const filePath = path.join(componentsDirectory, file);
-    const content = await fs.readFile(filePath, "utf8");
-    return { fileName: file, content };
-  });
-
-  const fileContents = (await Promise.all(fileContentsPromises)).filter(
-    (fileContent, _) =>
-      fileContent.fileName !== "component-details.json" &&
-      fileContent.fileName !== "example.gif"
-  );
-
-  const componentDetails: ComponentDetails = await JSON.parse(
-    await fs.readFile(
-      path.join(componentsDirectory, "component-details.json"),
-      "utf8"
-    )
-  );
-
-  return {
-    fileContents,
-    componentDetails,
-  };
 };
 
 export default async function Page({
