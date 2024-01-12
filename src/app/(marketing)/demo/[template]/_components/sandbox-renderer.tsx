@@ -27,7 +27,7 @@ export default function SandboxRenderer({
         />
         <Label htmlFor="code">Show Code</Label>
       </div>
-      <div className="border rounded relative flex justify-start items-center flex-col w-full aspect-video overflow-x-hidden my-4 scroll-m-0">
+      <div className="border rounded relative flex justify-start items-center flex-col w-full aspect-video overflow-x-hidden my-4 scroll-m-0 bg-background">
         <h1 className="text-sm rounded border p-2 absolute top-2 left-2">
           Virtual Sandbox
         </h1>
