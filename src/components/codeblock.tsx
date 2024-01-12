@@ -122,7 +122,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
           background: "transparent",
           padding: "1.5rem 1rem",
         }}
-        className="rounded w-full aspect-[16/8]"
+        className="rounded w-full aspect-[1/2] lg:aspect-[2/1]"
         codeTagProps={{
           style: {
             fontSize: "0.9rem",
