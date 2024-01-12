@@ -98,10 +98,12 @@ export default function RootLayout({
         )}
         suppressHydrationWarning={true}
       >
-        <div className="main"></div>
+        <div className="main">
+          <div className="gradient"></div>
+        </div>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
