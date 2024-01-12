@@ -75,7 +75,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    scroll-behavior: smooth;
   }
 }
 
@@ -84,7 +83,6 @@ body,
 :root {
   box-sizing: border-box;
   font-feature-settings: "rlig" 1, "calt" 1;
-  scroll-behavior: smooth;
   height: 100%;
 }
 
@@ -135,6 +133,51 @@ body,
   content: "";
   filter: blur(80px) saturate(150%);
   opacity: 0.3;
+}
+
+.mdx-heading {
+  --duration: 1s;
+  --ease: cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  background: linear-gradient(hsl(var(--secondary-foreground)) 0 0)
+    calc(100% - var(--p, 0%)) / 0 var(--p, 0%) no-repeat;
+  transition: background-size var(--duration) ease-in-out;
+}
+
+.mdx-heading:target {
+  animation: sweepAnimation var(--duration) ease-in-out forwards;
+}
+
+@keyframes sweepAnimation {
+  0% {
+    --p: 0%;
+    color: hsl(var(--secondary-foreground));
+    background-size: 0 var(--p, 0%);
+  }
+  50% {
+    --p: 100%;
+    color: hsl(var(--secondary));
+    background-size: 100% var(--p, 0%);
+  }
+  100% {
+    --p: 200%;
+    color: hsl(var(--secondary-foreground));
+    background-size: 210% var(--p, 0%);
+  }
+}
+
+.sweep-hover-animation {
+  @apply text-zinc-500 dark:text-zinc-200;
+}
+
+.sweep-hover-animation {
+  background: linear-gradient(hsl(var(--secondary-foreground)) 0 0) var(--p, 0) /
+    var(--p, 0) no-repeat;
+  transition: 0.4s, background-position 0s;
+}
+.sweep-hover-animation:hover {
+  --p: 100%;
+  color: hsl(var(--secondary));
 }
 
 *::-webkit-scrollbar {
