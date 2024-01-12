@@ -33,7 +33,7 @@ type DefaultNavbarProps = {
 
 export const DefaultNavbar = ({ mainNav }: DefaultNavbarProps) => {
   return (
-    <section className="border w-full flex md:justify-evenly md:items-center py-2 px-3 rounded">
+    <section className="border flex md:justify-evenly md:items-center py-2 px-3 rounded">
       <div className="lg:hidden mr-2 flex items-center">
         <Sheet>
           <SheetTrigger>
