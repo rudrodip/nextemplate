@@ -17,7 +17,9 @@ export default async function SiteFooter() {
           <p className="max-w-sm text-sm">{siteConfig.description}</p>
         </div>
         <div id="support" className="flex flex-col items-start ml-10">
-          <h1 className="font-heading mb-3">Socials</h1>
+          <h1 id="contact" className="font-heading mb-3">
+            Socials
+          </h1>
           {Object.keys(siteConfig.links).map((key) => {
             const typedKey = key as keyof typeof siteConfig.links;
             const capitalizedKey =
