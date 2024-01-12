@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import ConnectionLine from "./connection-line";
 import { cn } from "@/lib/utils";
+import "./style.css";
 
 type TechBoxProps = {
   pinId: string;
@@ -185,7 +186,7 @@ const renderPins = (
             key={`${idPrefix}-pin-${idx + 1}`}
             ref={refs[idx]}
             className={cn(
-              "icon-glow-muted",
+              "pin",
               idPrefix === "stage1" || idPrefix === "stage4"
                 ? "w-2 h-6"
                 : "w-6 h-2"
