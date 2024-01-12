@@ -1,0 +1,5 @@
+{
+  "title": "Multilevel Dropdown Navbar",
+  "desc": "Example of Multilevel dropdown menu, made with nextjs and shadcn ui library",
+  "tags": ["nextjs", "shadcn", "tailwindcss"]
+}
