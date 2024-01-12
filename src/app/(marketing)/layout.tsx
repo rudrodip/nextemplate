@@ -29,7 +29,9 @@ export default async function MarketingLayout({
           <ThemeToggleDropDown />
         </div>
       </header>
-      <main className="flex-1 app overflow-x-hidden lg:top-2">{children}</main>
+      <main className="flex-1 app overflow-x-hidden lg:top-2 px-2 md:px-0">
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );
