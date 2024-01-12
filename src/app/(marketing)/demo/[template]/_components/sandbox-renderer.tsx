@@ -19,22 +19,22 @@ export default function SandboxRenderer({
 
   return (
     <div className="flex flex-col justify-center items-center my-4">
-      <div className="flex w-full min-w-0 justify-end items-center space-x-2">
-        <Switch
-          id="code"
-          checked={showCode}
-          onCheckedChange={() => setShowCode(!showCode)}
-        />
-        <Label htmlFor="code">Show Code</Label>
+      <div className="flex w-full min-w-0 justify-between items-center space-x-2">
+        <h1 className="text-sm rounded border p-2">Virtual Sandbox</h1>
+        <div className="flex justify-center items-center space-x-2">
+          <Switch
+            id="code"
+            checked={showCode}
+            onCheckedChange={() => setShowCode(!showCode)}
+          />
+          <Label htmlFor="code">Show Code</Label>
+        </div>
       </div>
       <div className="border rounded relative flex justify-start items-center flex-col w-full aspect-video overflow-x-hidden my-4 scroll-m-0 bg-background">
-        <h1 className="text-sm rounded border p-2 absolute top-2 left-2">
-          Virtual Sandbox
-        </h1>
         {showCode ? (
           <RenderFiles fileContents={fileContents} />
         ) : (
-          <div className="flex-1 overflow-y-auto p-4">{children}</div>
+          <div className="flex-1 w-full overflow-y-auto p-4">{children}</div>
         )}
       </div>
     </div>
