@@ -36,4 +36,6 @@ export type ComponentDetails = {
   title: string;
   desc: string;
   tags: string[];
+  published: boolean;
+  date: string;
 };
