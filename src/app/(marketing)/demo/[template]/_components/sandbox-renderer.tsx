@@ -30,7 +30,7 @@ export default function SandboxRenderer({
           <Label htmlFor="code">Show Code</Label>
         </div>
       </div>
-      <div className="border rounded relative flex justify-start items-center flex-col w-full aspect-video overflow-x-hidden my-4 scroll-m-0 bg-background">
+      <div className="border rounded relative flex justify-start items-center flex-col w-full h-auto lg:aspect-video overflow-x-hidden my-4 scroll-m-0 bg-background">
         {showCode ? (
           <RenderFiles fileContents={fileContents} />
         ) : (
