@@ -2,6 +2,8 @@
 
 Hey there, welcome to NexTemplate – my personal indie project! This collection brings together custom templates and components crafted with Next.JS, shadcn/ui, and TailwindCSS. It's a space where I share pieces of code that might make your web development journey a bit smoother.
 
+![NexTemplate](https://nextemplate.vercel.app/nextemplate.gif)
+
 ## Features
 
 1. **Diverse Collection**: NexTemplate offers a bunch of reusable templates and components that I've put together. They're not perfect, but they've been useful for me, and I hope you find them helpful too.
