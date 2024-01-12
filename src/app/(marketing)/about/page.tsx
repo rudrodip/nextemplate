@@ -35,7 +35,7 @@ export default async function AboutPage() {
           <DashboardTableOfContents toc={toc} />
         </div>
       </div>
-      <div id="contact" className="mx-auto w-full min-w-0">
+      <div className="mx-auto w-full min-w-0">
         <MdxHeaderAnimation title={page.title} description={page.description} />
         <Mdx code={page.body.code} />
         <hr className="my-4 md:my-6" />
