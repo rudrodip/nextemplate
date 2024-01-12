@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    --grad1: 215, 98%, 61%;
+    --grad2: 125, 98%, 72%;
+    --grad3: 354, 98%, 61%;
+    --grad4: 256, 96%, 67%;
+    --grad5: 38, 60%, 74%;
+    --grad6: 222, 67%, 73%;
+    --grad7: 343, 68%, 79%;
+
+    --shine-degree: 120deg;
+    --shine-color: rgba(255, 255, 255, 0.2);
+    --shine-effect: linear-gradient(
+      var(--shine-degree),
+      transparent,
+      hsl(0 0% 96.1%),
+      transparent
+    );
+    --shine-transition: all 0.5s ease-in-out;
+    --media-brand: 245 245 245;
+    --media-focus: 78 156 246;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+html,
+body,
+:root {
+  box-sizing: border-box;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 0.5rem;
+  border-radius: 100vw;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 25vw;
+}
+
+::-moz-selection {
+  color: hsl(var(--secondary));
+  background: hsl(var(--primary));
+}
+
+::selection {
+  color: hsl(var(--secondary));
+  background: hsl(var(--primary));
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--shine-effect);
+  }
+}
+
+.shine-hover {
+  &::before {
+    left: -100%;
+    transition: var(--shine-transition);
+  }
+
+  &:hover {
+    box-shadow: var(--btn-shadow);
+
+    &::before {
+      left: 100%;
+    }
+  }
+}
+
+.shine-anim {
+  &::before {
+    animation: shine 3s ease-in-out infinite;
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    transition-property: left;
+  }
+  20%,
+  100% {
+    left: 100%;
+    transition-property: left;
+  }
+}
+
+.underline-animation {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app {
+  @apply relative flex items-center flex-col w-full mx-auto lg:mx-auto;
+}
+
+.head-text-lg {
+  @apply text-5xl font-extrabold font-heading leading-[1.15] sm:text-9xl;
+}
+
+.head-text-md {
+  @apply text-5xl font-extrabold font-heading leading-[1.15] sm:text-8xl;
+}
+
+.head-text-sm {
+  @apply text-5xl font-extrabold font-heading leading-[1.15] sm:text-6xl;
+}
+
+.head-style {
+  @apply font-extrabold font-heading leading-[1.15];
+}
+
+.primary-gradient {
+  @apply bg-gradient-to-b from-primary/80 via-primary to-primary/70 dark:from-primary dark:to-primary/50 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 max-w-2xl;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
