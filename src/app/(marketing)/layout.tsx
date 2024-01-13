@@ -4,6 +4,7 @@ import Link from "next/link";
 import ThemeToggleDropDown from "@/components/theme/theme-toggler";
 import SiteFooter from "@/components/footer/site-footer";
 import { Icons } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export default async function MarketingLayout({
         >
           <Icons.logo />
           <h1 className="text-lg ml-2 font-medium transition-colors hover:text-foreground/80 sm:text-sm">
-            Next-Demo
+            {siteConfig.name}
           </h1>
         </Link>
         <DefaultNavbar mainNav={marketingConfig.mainNav} />
