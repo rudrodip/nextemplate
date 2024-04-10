@@ -34,7 +34,7 @@ const TechBox: React.FC<TechBoxProps> = (props) => {
       id={props.pinId.replace("pin", "div")}
       ref={props.boxRef}
       className={cn(
-        "relative w-36 h-36 p-2 flex justify-center items-center border rounded-xl bg-secondary/20 backdrop-blur-md z-20 border-gradient",
+        "relative w-36 h-36 p-2 flex justify-center items-center border rounded-xl bg-secondary/20 z-20 border-gradient",
         borderMap[direction] || ""
       )}
     >
@@ -43,9 +43,9 @@ const TechBox: React.FC<TechBoxProps> = (props) => {
         width={300}
         height={300}
         alt={props.title}
-        className="rounded-xl animate-pulse"
+        className="rounded-xl"
       />
-      <p className="absolute bottom-0 text-lg text-center font-semibold bg-secondary/40 backdrop-blur-md rounded-b-md w-full">
+      <p className="absolute bottom-0 text-lg text-center font-semibold bg-secondary/40 rounded-b-md w-full">
         {props.title}
       </p>
     </div>
